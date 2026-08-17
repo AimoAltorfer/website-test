@@ -85,4 +85,33 @@ body {
   [data-reveal="linie"][data-inview="true"] path {
     stroke-dashoffset: 0;
   }
+
+  /* Atmosphärische Bildebenen: sehr langsames Treiben, wie Wasser.
+     Kein Zoom, kein Loop-Spektakel — nur ein leises Leben im Hintergrund. */
+  @keyframes treiben {
+    from {
+      transform: translate3d(0, -1.5%, 0) rotate(-0.6deg);
+    }
+    to {
+      transform: translate3d(0, 1.5%, 0) rotate(0.6deg);
+    }
+  }
+  .anim-treiben {
+    animation: treiben 18s ease-in-out infinite alternate;
+  }
+  .anim-treiben-2 {
+    animation: treiben 26s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes atmen {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+  .anim-atmen {
+    animation: atmen 14s ease-in-out infinite alternate;
+  }
 }

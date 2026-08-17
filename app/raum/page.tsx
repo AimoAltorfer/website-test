@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Atmosphaere from "@/components/Atmosphaere";
 import Bild from "@/components/Bild";
 import DreiFluesse from "@/components/DreiFluesse";
 import Reveal from "@/components/Reveal";
@@ -31,29 +33,58 @@ export default function RaumSeite() {
       />
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-          <Bild
-            src="/images/praxisraum-blau.jpg"
-            alt="Heller Praxisraum mit blauer Wand und Behandlungsliege"
-            caption="Praxisraum."
-            aspect="aspect-[3/4]"
-            sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
-            priority
-          />
-          <Bild
-            src="/images/praxisraum-warte.jpg"
-            alt="Grosser Warteraum der Praxis"
-            caption="Warteraum."
-            aspect="aspect-[3/4]"
-            sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
-          />
-          <Bild
-            src="/images/praxisraum-buero.jpg"
-            alt="Büroraum mit Schreibtisch"
-            caption="Büro."
-            aspect="aspect-[3/4]"
-            sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
-          />
+        {/* Die drei Räume als aufgefächerte, überlappende Karten */}
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-0 md:py-8">
+          {[
+            {
+              src: "/images/praxisraum-blau.jpg",
+              alt: "Heller Praxisraum mit blauer Wand und Behandlungsliege",
+              caption: "Praxisraum.",
+              dreh: "md:rotate-[-4deg] md:translate-y-4",
+              ebene: "md:z-10",
+              rand: "",
+            },
+            {
+              src: "/images/praxisraum-warte.jpg",
+              alt: "Grosser Warteraum der Praxis",
+              caption: "Warteraum.",
+              dreh: "md:rotate-[2deg] md:-translate-y-2",
+              ebene: "md:z-20",
+              rand: "md:-ml-10",
+            },
+            {
+              src: "/images/praxisraum-buero.jpg",
+              alt: "Büroraum mit Schreibtisch",
+              caption: "Büro.",
+              dreh: "md:rotate-[-1.5deg] md:translate-y-6",
+              ebene: "md:z-10",
+              rand: "md:-ml-10",
+            },
+          ].map((raum, i) => (
+            <Reveal
+              key={raum.src}
+              delayMs={i * 140}
+              className={`relative md:w-1/3 ${raum.ebene} ${raum.rand}`}
+            >
+              <figure
+                className={`transition-transform duration-500 ease-out hover:z-30 md:hover:-translate-y-3 md:hover:rotate-0 ${raum.dreh}`}
+              >
+                <div className="relative aspect-[3/4] overflow-hidden rounded-[1.25rem] shadow-[0_28px_56px_-24px_rgba(11,35,39,0.5)]">
+                  <Image
+                    src={raum.src}
+                    alt={raum.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    priority={i === 0}
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-4 font-display text-base italic text-salbei-tief md:text-lg">
+                  {raum.caption}
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
         </div>
 
         <div className="mt-16 grid gap-12 lg:grid-cols-12">
@@ -156,8 +187,13 @@ export default function RaumSeite() {
         </div>
       </section>
 
-      <section className="bg-salbei-hell py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
+      <section className="relative overflow-hidden bg-salbei-hell py-16 md:py-20">
+        <Atmosphaere
+          src="/images/home-water-bg.jpg"
+          drift={2}
+          className="inset-y-[-12%] right-[-12%] w-[50%] opacity-[0.12] [mask-image:linear-gradient(to_left,black_30%,transparent_85%)]"
+        />
+        <div className="relative mx-auto max-w-6xl px-5 md:px-8">
           <DreiFluesse className="mb-6" />
           <Reveal>
             <h2 className="max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3rem)] leading-tight font-semibold text-wasser">

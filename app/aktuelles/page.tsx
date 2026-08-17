@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Atmosphaere from "@/components/Atmosphaere";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -10,18 +11,24 @@ export const metadata: Metadata = {
 export default function AktuellesSeite() {
   return (
     <>
-      <div className="mx-auto max-w-6xl px-5 pt-14 md:px-8 md:pt-20">
-        <Reveal>
-          <p className="text-base font-semibold tracking-wide text-tuerkis uppercase md:text-lg">
-            Aktuelles
-          </p>
-        </Reveal>
-        <Reveal delayMs={80}>
-          <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[1.05] font-semibold tracking-tight text-wasser">
-            Fallstudie P1
-            <span className="mt-1 block">Vorbereitung P2</span>
-          </h1>
-        </Reveal>
+      <div className="relative overflow-hidden">
+        <Atmosphaere
+          src="/images/moxa-buch.jpg"
+          className="inset-y-[-12%] right-[-15%] w-[55%] opacity-[0.1] [mask-image:linear-gradient(to_left,black_30%,transparent_85%)]"
+        />
+        <div className="relative mx-auto max-w-6xl px-5 pt-14 md:px-8 md:pt-20">
+          <Reveal>
+            <p className="text-base font-semibold tracking-wide text-tuerkis uppercase md:text-lg">
+              Aktuelles
+            </p>
+          </Reveal>
+          <Reveal delayMs={80}>
+            <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.5rem,6.5vw,4.5rem)] leading-[1.05] font-semibold tracking-tight text-wasser">
+              Fallstudie P1
+              <span className="mt-1 block">Vorbereitung P2</span>
+            </h1>
+          </Reveal>
+        </div>
       </div>
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">

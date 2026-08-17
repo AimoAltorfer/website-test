@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Bild from "@/components/Bild";
+import Atmosphaere from "@/components/Atmosphaere";
+import BildBuehne from "@/components/BildBuehne";
 import DreiFluesse from "@/components/DreiFluesse";
 import Reveal from "@/components/Reveal";
 import SeitenKopf from "@/components/SeitenKopf";
@@ -40,21 +41,31 @@ export default function MethodenSeite() {
             </ol>
           </div>
 
-          <aside className="flex flex-col gap-10 lg:col-span-4">
-            <Bild
-              src="/images/akupunktur-hand.jpg"
-              alt="Hand setzt eine feine Akupunkturnadel"
-              caption="Akupunktur."
-              aspect="aspect-[3/2]"
-              sizes="(min-width: 1024px) 30vw, 100vw"
-            />
-            <Bild
-              src="/images/buddha.jpg"
-              alt="Kleine Buddha-Figur in der Praxis"
-              caption="Buddha-Figur in der Praxis."
+          <aside className="lg:col-span-4">
+            {/* Bildbühne bleibt beim Scrollen stehen und wechselt die Fotos */}
+            <BildBuehne
+              className="lg:sticky lg:top-28"
+              bilder={[
+                {
+                  src: "/images/akupunktur-hand.jpg",
+                  alt: "Hand setzt eine feine Akupunkturnadel",
+                  caption: "Akupunktur.",
+                },
+                {
+                  src: "/images/buddha.jpg",
+                  alt: "Kleine Buddha-Figur in der Praxis",
+                  caption: "Buddha-Figur in der Praxis.",
+                },
+                {
+                  src: "/images/moxa-buch.jpg",
+                  alt: "Moxa-Zigarre und ein altes chinesisches Buch",
+                  caption: "Moxa und ein altes Buch.",
+                },
+              ]}
               frame="bogen"
               aspect="aspect-[3/4]"
               sizes="(min-width: 1024px) 30vw, 100vw"
+              intervalMs={4600}
             />
           </aside>
         </div>
@@ -92,8 +103,13 @@ export default function MethodenSeite() {
         </div>
       </section>
 
-      <section className="bg-wasser py-16 text-stein md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
+      <section className="relative overflow-hidden bg-wasser py-16 text-stein md:py-20">
+        <Atmosphaere
+          src="/images/home-water-bg.jpg"
+          drift={2}
+          className="inset-y-[-12%] right-[-12%] w-[55%] opacity-[0.15] [mask-image:linear-gradient(to_left,black_30%,transparent_85%)]"
+        />
+        <div className="relative mx-auto max-w-6xl px-5 md:px-8">
           <DreiFluesse tone="hell" className="mb-6" />
           <Reveal>
             <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] leading-tight font-semibold text-stein-hell">

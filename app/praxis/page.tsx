@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Bild from "@/components/Bild";
+import Atmosphaere from "@/components/Atmosphaere";
+import BildTausch from "@/components/BildTausch";
 import DreiFluesse from "@/components/DreiFluesse";
 import Reveal from "@/components/Reveal";
 
@@ -23,7 +24,12 @@ const scossaAngebot = [
 export default function PraxisSeite() {
   return (
     <>
-      <div className="mx-auto max-w-6xl px-5 pt-14 md:px-8 md:pt-20">
+      <div className="relative overflow-hidden">
+        <Atmosphaere
+          src="/images/home-water-bg.jpg"
+          className="inset-y-[-12%] right-[-15%] w-[55%] opacity-[0.14] [mask-image:linear-gradient(to_left,black_30%,transparent_85%)]"
+        />
+        <div className="relative mx-auto max-w-6xl px-5 pt-14 md:px-8 md:pt-20">
         <Reveal>
           <p className="text-base font-semibold tracking-wide text-tuerkis md:text-lg">
             Wer sind wir? Wenn ja, wieviele?
@@ -51,17 +57,23 @@ export default function PraxisSeite() {
             </a>
           </p>
         </Reveal>
+        </div>
       </div>
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-        <Bild
-          src="/images/team.jpg"
-          alt="Silke Altorfer und Chantal Scossa Vionnet mit einem Anatomie-Skelett"
+        {/* Zwei Fotos tauschen die Plätze: Skelett-Shooting und Boxhandschuhe */}
+        <BildTausch
+          eins={{
+            src: "/images/team.jpg",
+            alt: "Silke Altorfer und Chantal Scossa Vionnet mit einem Anatomie-Skelett",
+          }}
+          zwei={{
+            src: "/images/boxen.jpg",
+            alt: "Silke Altorfer und Chantal Scossa Vionnet mit Boxhandschuhen vor der Praxis",
+          }}
           caption="Silke Altorfer und Chantal Scossa Vionnet."
-          aspect="aspect-[16/9]"
-          sizes="(min-width: 1024px) 80vw, 100vw"
           priority
-          className="lg:max-w-4xl"
+          className="lg:max-w-3xl"
         />
 
         {/* Gerne etwas schräg */}

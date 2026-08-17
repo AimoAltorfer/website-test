@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Atmosphaere from "@/components/Atmosphaere";
 import Bild from "@/components/Bild";
 import Reveal from "@/components/Reveal";
 import SeitenKopf from "@/components/SeitenKopf";
@@ -13,11 +14,19 @@ export const metadata: Metadata = {
 export default function KontaktSeite() {
   return (
     <>
-      <SeitenKopf
-        kicker="Kontakt"
-        titel="Silke Altorfer"
-        lead="eidg. dipl. Naturheilpraktikerin Fachrichtung Traditionelle Chinesische Medizin Mentorin"
-      />
+      <div className="relative overflow-hidden">
+        <Atmosphaere
+          src="/images/home-water-bg.jpg"
+          className="inset-y-[-12%] right-[-15%] w-[55%] opacity-[0.14] [mask-image:linear-gradient(to_left,black_30%,transparent_85%)]"
+        />
+        <div className="relative">
+          <SeitenKopf
+            kicker="Kontakt"
+            titel="Silke Altorfer"
+            lead="eidg. dipl. Naturheilpraktikerin Fachrichtung Traditionelle Chinesische Medizin Mentorin"
+          />
+        </div>
+      </div>
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
         <div className="grid gap-12 lg:grid-cols-12">

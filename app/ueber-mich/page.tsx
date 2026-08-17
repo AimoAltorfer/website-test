@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Atmosphaere from "@/components/Atmosphaere";
 import Bild from "@/components/Bild";
 import Reveal from "@/components/Reveal";
 import SeitenKopf from "@/components/SeitenKopf";
@@ -29,25 +31,33 @@ const ausbildung = [
 export default function UeberMichSeite() {
   return (
     <>
-      <SeitenKopf
-        kicker="Über mich"
-        titel="Silke Altorfer"
-        lead={
-          <>
-            TCM-Therapeutin
-            <br />
-            eidg. dipl. Naturheilpraktikerin
-            <br />
-            mit Fachrichtung Traditionelle Chinesische Medizin
-            <br />
-            Mentorin
-          </>
-        }
-      />
+      <div className="relative overflow-hidden">
+        <Atmosphaere
+          src="/images/home-water-bg.jpg"
+          className="inset-y-[-12%] right-[-15%] w-[55%] opacity-[0.14] [mask-image:linear-gradient(to_left,black_30%,transparent_85%)]"
+        />
+        <div className="relative">
+          <SeitenKopf
+            kicker="Über mich"
+            titel="Silke Altorfer"
+            lead={
+              <>
+                TCM-Therapeutin
+                <br />
+                eidg. dipl. Naturheilpraktikerin
+                <br />
+                mit Fachrichtung Traditionelle Chinesische Medizin
+                <br />
+                Mentorin
+              </>
+            }
+          />
+        </div>
+      </div>
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+          <div className="relative lg:col-span-5">
             <Bild
               src="/images/silke-selfie.jpg"
               alt="Silke Altorfer in der Praxis"
@@ -57,6 +67,22 @@ export default function UeberMichSeite() {
               sizes="(min-width: 1024px) 40vw, 100vw"
               priority
             />
+            {/* Kleine Bildebene schiebt sich über die Ecke des Porträts */}
+            <Reveal
+              delayMs={200}
+              className="absolute -right-3 bottom-16 hidden w-[45%] rotate-[3deg] overflow-hidden rounded-[1rem] shadow-[0_20px_40px_-18px_rgba(11,35,39,0.45)] lg:block"
+            >
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src="/images/mala.jpg"
+                  alt=""
+                  aria-hidden="true"
+                  fill
+                  sizes="18vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
           </div>
 
           <div className="lg:col-span-7">
@@ -132,10 +158,24 @@ export default function UeberMichSeite() {
           </Reveal>
         </div>
 
+        {/* Der Satz sitzt auf dem Nadelfoto */}
         <Reveal className="mt-20">
-          <p className="font-display text-[clamp(2rem,4.5vw,3.25rem)] leading-tight font-semibold text-wasser">
-            Hier werden Sie gestochen!
-          </p>
+          <div className="relative flex min-h-[16rem] items-end overflow-hidden rounded-[2rem] md:min-h-[22rem]">
+            <Image
+              src="/images/akupunktur-hand.jpg"
+              alt="Hand setzt eine feine Akupunkturnadel"
+              fill
+              sizes="(min-width: 1280px) 1152px, 100vw"
+              className="object-cover"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-wasser-tief/90 via-wasser/40 to-wasser/5"
+            />
+            <p className="relative z-10 p-8 font-display text-[clamp(2rem,4.5vw,3.25rem)] leading-tight font-semibold text-stein-hell md:p-12">
+              Hier werden Sie gestochen!
+            </p>
+          </div>
         </Reveal>
       </section>
     </>
