@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* Wasserschloss-Palette: Wasser, Stein, Salbei (aus dem Logo) */
+  --color-stein: #f2f0e8;
+  --color-stein-hell: #faf9f4;
+  --color-stein-linie: #ddd9c8;
+  --color-salbei: #aab088;
+  --color-salbei-hell: #e9ebdc;
+  --color-salbei-tief: #7d8560;
+  --color-wasser: #14383d;
+  --color-wasser-tief: #0b2327;
+  --color-tuerkis: #37817f;
+  --color-tuerkis-hell: #cfe2de;
+  --color-tinte: #1c2f30;
+  --color-pinsel: #5b4e43;
+
+  --font-display: var(--font-fraunces), "Georgia", serif;
+  --font-body: var(--font-karla), "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-stein);
+  color: var(--color-tinte);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-tuerkis);
+  color: var(--color-stein-hell);
+}
+
+/* ------------------------------------------------------------------
+   Bewegungssprache «steigendes Wasser»
+   Einmalige, ruhige Übergänge beim Eintritt ins Sichtfeld.
+   Kein Ken-Burns, kein Loop, kein Parallax.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal="rise"] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Bild taucht auf wie ein steigender Wasserspiegel: Wipe von unten nach oben.
+     Wichtig: Der Clip liegt auf dem Kind, nicht auf dem beobachteten Element —
+     ein voll geclipptes Ziel hätte für den IntersectionObserver eine leere
+     Schnittfläche und würde nie auslösen. */
+  [data-reveal="wasser"] > * {
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1s cubic-bezier(0.33, 1, 0.68, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* Die drei Flüsse (Aare, Reuss, Limmat) zeichnen sich selbst */
+  [data-reveal="linie"] path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.4s ease-out;
+  }
+  [data-reveal="linie"] path:nth-child(2) {
+    transition-delay: 0.15s;
+  }
+  [data-reveal="linie"] path:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  [data-reveal][data-inview="true"] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal="wasser"][data-inview="true"] > * {
+    clip-path: inset(0 0 0 0);
+  }
+  [data-reveal="linie"][data-inview="true"] path {
+    stroke-dashoffset: 0;
+  }
+
+  /* Atmosphärische Bildebenen: sehr langsames Treiben, wie Wasser.
+     Kein Zoom, kein Loop-Spektakel — nur ein leises Leben im Hintergrund. */
+  @keyframes treiben {
+    from {
+      transform: translate3d(0, -1.5%, 0) rotate(-0.6deg);
+    }
+    to {
+      transform: translate3d(0, 1.5%, 0) rotate(0.6deg);
+    }
+  }
+  .anim-treiben {
+    animation: treiben 18s ease-in-out infinite alternate;
+  }
+  .anim-treiben-2 {
+    animation: treiben 26s ease-in-out infinite alternate-reverse;
+  }
+
+  @keyframes atmen {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+  .anim-atmen {
+    animation: atmen 14s ease-in-out infinite alternate;
+  }
+}
