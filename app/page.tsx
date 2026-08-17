@@ -23,8 +23,8 @@ export default function Home() {
               </p>
             </Reveal>
             <Reveal delayMs={80}>
-              <h1 className="mt-6 font-display text-[clamp(2.1rem,5.5vw,4.25rem)] leading-[1.06] font-semibold tracking-tight break-words text-wasser">
-                PRAXISGEMEINSCHAFT WASSERSCHLOSS
+              <h1 className="mt-6 font-display text-[clamp(2.1rem,5.5vw,4.25rem)] leading-[1.06] font-semibold tracking-tight text-wasser">
+                PRAXIS&shy;GEMEINSCHAFT WASSERSCHLOSS
                 <span className="mt-3 block text-[clamp(1.4rem,3.5vw,2.5rem)] leading-snug">
                   ZENTRUM FÜR NATURMEDIZIN
                 </span>

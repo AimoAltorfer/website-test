@@ -30,8 +30,8 @@ export default function PraxisSeite() {
           </p>
         </Reveal>
         <Reveal delayMs={80}>
-          <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.1rem,5.5vw,4.25rem)] leading-[1.06] font-semibold tracking-tight break-words text-wasser">
-            Gemeinschaftspraxis Wasserschloss
+          <h1 className="mt-4 max-w-4xl font-display text-[clamp(2.1rem,5.5vw,4.25rem)] leading-[1.06] font-semibold tracking-tight text-wasser">
+            Gemeinschafts&shy;praxis Wasserschloss
             <span className="mt-3 block text-[clamp(1.4rem,3.5vw,2.5rem)] leading-snug">
               Zentrum für Naturmedizin
             </span>
