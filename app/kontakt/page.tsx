@@ -7,7 +7,7 @@ import { kontakt } from "@/lib/inhalte";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Akupunkturpraxis Wasserschloss, Silke Altorfer, Bahnhofstrasse 14, 5300 Turgi. Termine nach Vereinbarung: 079 200 80 49 oder akupunktur-wasserschloss@gmx.ch.",
+    "Akupunkturpraxis Wasserschloss, Silke Altorfer, Bahnhofstrasse 14 (1. Stock), 5300 Turgi. 079 200 80 49, akupunktur-wasserschloss@gmx.ch. Termine nach Vereinbarung.",
 };
 
 export default function KontaktSeite() {
@@ -15,8 +15,8 @@ export default function KontaktSeite() {
     <>
       <SeitenKopf
         kicker="Kontakt"
-        titel="Termine nach Vereinbarung."
-        lead="Anrufen oder schreiben — wir finden einen Termin. Im Verhinderungsfall bitte mindestens 24 Stunden vorher mitteilen, sonst muss der verpasste Termin verrechnet werden."
+        titel="Silke Altorfer"
+        lead="eidg. dipl. Naturheilpraktikerin Fachrichtung Traditionelle Chinesische Medizin Mentorin"
       />
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
@@ -24,33 +24,36 @@ export default function KontaktSeite() {
           <div className="lg:col-span-7">
             <Reveal className="rounded-[2rem] border border-stein-linie bg-stein-hell p-8 md:p-12">
               <h2 className="font-display text-3xl font-semibold text-wasser">
-                Silke Altorfer
+                Akupunkturpraxis Wasserschloss
               </h2>
-              <p className="mt-2 text-lg leading-relaxed md:text-xl">
-                eidg. dipl. Naturheilpraktikerin, Fachrichtung Traditionelle
-                Chinesische Medizin, Mentorin
-              </p>
               <address className="mt-6 text-lg leading-relaxed not-italic md:text-xl">
                 Akupunkturpraxis Wasserschloss
                 <br />
-                {kontakt.adresse[0]}
+                Silke Altorfer
                 <br />
-                {kontakt.adresse[1]}
+                Bahnhofstrasse 14 (1. Stock)
+                <br />
+                5300 Turgi
               </address>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href={kontakt.telefonHref}
                   className="rounded-full bg-wasser px-7 py-4 text-lg font-semibold text-stein-hell transition-colors hover:bg-tuerkis"
                 >
-                  Anrufen: {kontakt.telefon}
+                  {kontakt.telefon}
                 </a>
                 <a
                   href={kontakt.mailHref}
                   className="rounded-full border-2 border-wasser px-7 py-4 text-lg font-semibold text-wasser transition-colors hover:border-tuerkis hover:text-tuerkis"
                 >
-                  E-Mail schreiben
+                  {kontakt.mail}
                 </a>
               </div>
+              <p className="mt-8 text-lg leading-relaxed md:text-xl">
+                Termine nach Vereinbarung. Im Verhinderungsfall bitte
+                mindestens 24 h vorher mitteilen, ansonsten muss der verpasste
+                Termin verrechnet werden.
+              </p>
               <p className="mt-6 text-base text-salbei-tief md:text-lg">
                 Karte:{" "}
                 <a
@@ -74,7 +77,7 @@ export default function KontaktSeite() {
             <Bild
               src="/images/praxis-haus.jpg"
               alt="Das Haus an der Bahnhofstrasse 14 in Turgi"
-              caption="Bahnhofstrasse 14, 1. Stock. Eingang seitlich, kein Lift."
+              caption="Bahnhofstrasse 14, 5300 Turgi."
               frame="bogen"
               aspect="aspect-[4/5]"
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -89,8 +92,6 @@ export default function KontaktSeite() {
               Impressum
             </h2>
             <p className="mt-4 text-lg leading-relaxed md:text-xl">
-              Praxisgemeinschaft Wasserschloss
-              <br />
               Silke Altorfer
               <br />
               Bahnhofstrasse 14
@@ -117,19 +118,29 @@ export default function KontaktSeite() {
             <h2 className="font-display text-2xl font-semibold text-wasser md:text-3xl">
               Datenschutzerklärung
             </h2>
-            <div className="mt-4 space-y-4 text-lg leading-relaxed md:text-xl">
-              <p>
-                Verantwortliche Person im Sinne des Datenschutzgesetzes (DSG)
-                ist Silke Altorfer, Bahnhofstrasse 14, 5300 Turgi,{" "}
-                {kontakt.mail}, {kontakt.telefon}.
-              </p>
-              <p>
-                Wenn Sie uns per E-Mail oder Telefon kontaktieren, verwenden
-                wir Ihre Angaben nur, um die Anfrage zu beantworten und den
-                Termin zu organisieren. Es gibt kein Kontaktformular mit
-                Server, keinen Newsletter, kein Tracking.
-              </p>
-            </div>
+            <p className="mt-4 text-lg leading-relaxed md:text-xl">
+              Verantwortlicher im Sinne der Datenschutzgesetze DSG
+              <br />
+              Silke Altorfer
+              <br />
+              Bahnhofstrasse 14
+              <br />
+              5300 Turgi
+              <br />
+              <a
+                href={kontakt.mailHref}
+                className="underline underline-offset-4 hover:text-tuerkis"
+              >
+                {kontakt.mail}
+              </a>
+              <br />
+              <a
+                href={kontakt.telefonHref}
+                className="underline underline-offset-4 hover:text-tuerkis"
+              >
+                {kontakt.telefon}
+              </a>
+            </p>
           </Reveal>
         </div>
       </section>

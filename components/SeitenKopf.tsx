@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Reveal from "./Reveal";
 
 export default function SeitenKopf({
@@ -7,7 +8,7 @@ export default function SeitenKopf({
 }: {
   kicker: string;
   titel: string;
-  lead?: string;
+  lead?: ReactNode;
 }) {
   return (
     <div className="mx-auto max-w-6xl px-5 pt-14 md:px-8 md:pt-20">

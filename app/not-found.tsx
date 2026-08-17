@@ -7,10 +7,10 @@ export default function NotFound() {
         404
       </p>
       <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] leading-tight font-semibold text-wasser">
-        Hier fliesst nichts.
+        Seite nicht gefunden
       </h1>
       <p className="mt-6 max-w-xl text-xl leading-relaxed md:text-2xl">
-        Diese Seite gibt es nicht — der Meridian endet im Leeren.
+        Diese Seite existiert nicht.
       </p>
       <Link
         href="/"

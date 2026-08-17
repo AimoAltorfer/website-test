@@ -27,9 +27,7 @@ export default function Footer() {
               eidg. dipl. Naturheilpraktikerin, Fachrichtung TCM, Mentorin
             </p>
             <p className="mt-3">
-              Bahnhofstrasse 14, 1. Stock
-              <br />
-              Eingang seitlich, kein Lift
+              Bahnhofstrasse 14 (1. Stock)
               <br />
               5300 Turgi
             </p>
@@ -50,8 +48,8 @@ export default function Footer() {
           <div className="text-base">
             <p className="font-semibold text-stein-hell">Termine nach Vereinbarung</p>
             <p className="mt-2 text-tuerkis-hell">
-              Im Verhinderungsfall bitte mindestens 24 Stunden vorher mitteilen,
-              sonst muss der verpasste Termin verrechnet werden.
+              Im Verhinderungsfall bitte mindestens 24 h vorher mitteilen,
+              ansonsten muss der verpasste Termin verrechnet werden.
             </p>
             <p className="mt-4">
               <Link href="/kontakt" className="underline underline-offset-4 hover:text-tuerkis-hell">
@@ -62,8 +60,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-12 border-t border-wasser pt-6 text-sm text-tuerkis-hell/80">
-          © {new Date().getFullYear()} Praxisgemeinschaft Wasserschloss, Turgi —
-          am Wasserschloss der Schweiz, wo Aare, Reuss und Limmat zusammenfliessen.
+          © {new Date().getFullYear()} Praxisgemeinschaft Wasserschloss, Turgi
         </p>
       </div>
     </footer>

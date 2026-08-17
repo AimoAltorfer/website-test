@@ -3,20 +3,19 @@ import Bild from "@/components/Bild";
 import DreiFluesse from "@/components/DreiFluesse";
 import Reveal from "@/components/Reveal";
 import SeitenKopf from "@/components/SeitenKopf";
-import { kontakt } from "@/lib/inhalte";
 
 export const metadata: Metadata = {
-  title: "Praxisraum mieten",
+  title: "Praxisraum",
   description:
-    "Praxis- oder Büroraum an der Bahnhofstrasse 14 in Turgi zu vermieten: CHF 490.– pro Raum und Monat inklusive Nebenkosten, Küche, Bad und grossem Warteraum.",
+    "Praxis- oder Büroraum gesucht? In der Gemeinschaftspraxis Wasserschloss Turgi werden zwei Therapie- und Büroräume frei. CHF 490.-- pro Raum und Monat inklusive.",
 };
 
 const fakten = [
   "per sofort oder nach Vereinbarung",
   "zentral an der Bahnhofstrasse",
   "Parkplätze vor dem Haus",
-  "Bahnhof 3 Minuten entfernt",
-  "pro Raum CHF 490.– / monatlich (inkl.)",
+  "Bahnhof 3 min entfernt",
+  "pro Raum CHF 490.-- / monatlich (inkl.)",
   "auch halbe Woche möglich nach Absprache",
   "mit gemeinsamer Küche, Bad und Warteraum",
   "Tee, Kombucha und Kaffeemaschine inklusive",
@@ -27,8 +26,8 @@ export default function RaumSeite() {
     <>
       <SeitenKopf
         kicker="Raum"
-        titel="Zwei Räume sind frei."
-        lead="Altbau an der Bahnhofstrasse, 1. Stock, kein Lift — dafür Charakter. Für Therapeutinnen, Coaches, Treuhänder und alle, die einen ruhigen Raum mit Empfang brauchen."
+        titel="Praxis- oder Büroraum gesucht?"
+        lead="In der Gemeinschaftspraxis Wasserschloss Turgi werden zwei Therapie- und Büroräume frei."
       />
 
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
@@ -36,7 +35,7 @@ export default function RaumSeite() {
           <Bild
             src="/images/praxisraum-blau.jpg"
             alt="Heller Praxisraum mit blauer Wand und Behandlungsliege"
-            caption="Der blaue Raum. Hell, arbeitsbereit."
+            caption="Praxisraum."
             aspect="aspect-[3/4]"
             sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
             priority
@@ -44,14 +43,14 @@ export default function RaumSeite() {
           <Bild
             src="/images/praxisraum-warte.jpg"
             alt="Grosser Warteraum der Praxis"
-            caption="Grosser Warteraum. Auch für Anlässe am Wochenende."
+            caption="Warteraum."
             aspect="aspect-[3/4]"
             sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
           />
           <Bild
             src="/images/praxisraum-buero.jpg"
             alt="Büroraum mit Schreibtisch"
-            caption="Büro oder Beratung. Das Telefon ist analog, der Platz nicht."
+            caption="Büro."
             aspect="aspect-[3/4]"
             sizes="(min-width: 1024px) 30vw, (min-width: 768px) 50vw, 100vw"
           />
@@ -63,7 +62,10 @@ export default function RaumSeite() {
               <ul className="grid gap-x-8 gap-y-3 text-lg leading-relaxed sm:grid-cols-2 md:text-xl">
                 {fakten.map((punkt) => (
                   <li key={punkt} className="flex gap-3">
-                    <span aria-hidden="true" className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tuerkis" />
+                    <span
+                      aria-hidden="true"
+                      className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tuerkis"
+                    />
                     {punkt}
                   </li>
                 ))}
@@ -86,32 +88,57 @@ export default function RaumSeite() {
                 <h2 className="font-display text-2xl font-semibold text-wasser md:text-3xl">
                   Praxis befindet sich im 1. Stock
                 </h2>
-                <p className="mt-3 max-w-2xl text-lg leading-relaxed md:text-xl">
-                  Der Eingang befindet sich seitlich, kein Lift. Tumbler und
-                  Waschmaschine im Keller. Küche und Bad. Im Preis inbegriffen
-                  sind auch die Nebenkosten, Strom, Wasser, Heizung, Tee,
-                  Kaffee.
-                </p>
+                <ul className="mt-3 max-w-2xl space-y-2 text-lg leading-relaxed md:text-xl">
+                  {[
+                    "der Eingang befindet sich seitlich",
+                    "kein Lift",
+                    "Tumbler und Waschmaschine im Keller",
+                    "Küche und Bad",
+                    "im Preis inbegriffen sind auch die Nebenkosten, Strom, Wasser, Heizung, Tee, Kaffee",
+                  ].map((punkt) => (
+                    <li key={punkt} className="flex gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tuerkis"
+                      />
+                      {punkt}
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
               <Reveal>
                 <h2 className="font-display text-2xl font-semibold text-wasser md:text-3xl">
-                  Schöne Räume im Altbaustil
+                  Schöne Räume in Altbaustil
                 </h2>
-                <p className="mt-3 max-w-2xl text-lg leading-relaxed md:text-xl">
-                  Dürfen auch individuell eingerichtet und gestrichen werden.
-                  Möbel können, wenn gewünscht, nach Absprache teils übernommen
-                  werden. Im einen Raum steht zur Zeit eine Liege, die
-                  übernommen werden kann.
-                </p>
+                <ul className="mt-3 max-w-2xl space-y-2 text-lg leading-relaxed md:text-xl">
+                  {[
+                    "dürfen auch individuell eingerichtet und gestrichen werden, Möbel können wenn gewünscht nach Absprache teils übernommen werden",
+                    "im einen Raum steht zur Zeit eine Liege, die übernommen werden kann",
+                  ].map((punkt) => (
+                    <li key={punkt} className="flex gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tuerkis"
+                      />
+                      {punkt}
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
               <Reveal>
                 <h2 className="font-display text-2xl font-semibold text-wasser md:text-3xl">
-                  Grosser, einladender Warteraum
+                  Grosser einladender Warteraum
                 </h2>
-                <p className="mt-3 max-w-2xl text-lg leading-relaxed md:text-xl">
-                  An den Wochenenden steht die Praxis meist leer — also auch
-                  für Gruppenbesprechungen etc. geeignet.
-                </p>
+                <ul className="mt-3 max-w-2xl space-y-2 text-lg leading-relaxed md:text-xl">
+                  <li className="flex gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="mt-3.5 h-1.5 w-1.5 shrink-0 rounded-full bg-tuerkis"
+                    />
+                    an den Wochenenden steht die Praxis meist leer, also auch
+                    für Gruppenbesprechungen etc. geeignet
+                  </li>
+                </ul>
               </Reveal>
             </div>
           </div>
@@ -120,7 +147,7 @@ export default function RaumSeite() {
             <Bild
               src="/images/praxis-haus.jpg"
               alt="Das Haus an der Bahnhofstrasse 14 in Turgi"
-              caption="Das Haus. Seitlicher Eingang, 1. Stock."
+              caption="Das Haus an der Bahnhofstrasse 14."
               frame="bogen"
               aspect="aspect-[4/5]"
               sizes="(min-width: 1024px) 40vw, 100vw"
@@ -134,7 +161,7 @@ export default function RaumSeite() {
           <DreiFluesse className="mb-6" />
           <Reveal>
             <h2 className="max-w-3xl font-display text-[clamp(1.9rem,4.5vw,3rem)] leading-tight font-semibold text-wasser">
-              Für Therapeuten: Also Hilfe!!
+              für Therapeuten
             </h2>
           </Reveal>
           <Reveal delayMs={100}>
@@ -143,38 +170,20 @@ export default function RaumSeite() {
                 Ich führe meine Praxis seit 2012 in diesen vier Wänden mit der
                 Naturheilpraktikerin (TEN) Chantal Scossa. Wir haben uns stets
                 ergänzt und TEN und TCM verbunden. Aus persönlichen Gründen
-                gibt sie nun ihre Praxis auf. Ich würde mich sehr freuen,
-                wieder mit einer TEN-Therapeutin zusammenarbeiten zu können —
-                aber auch eine TCM-Verstärkung könnte ich dringend brauchen.
-              </p>
-              <p>
-                Die meiste Zeit vom Jahr bin ich sehr ausgebucht und wäre froh
-                um Unterstützung. Leider kann ich nicht alle Patientenanfragen
-                annehmen, und auch Notfälle haben es oft schwierig, bei mir
-                reinzurutschen.
+                gibt Sie nun ihre Praxis auf. Ich würde mich sehr freuen wieder
+                mit einer TEN-Therapeutin zusammen arbeiten zu können. Aber
+                auch eine TCM-Verstärkung könnte ich dringend brauchen. Die
+                meiste Zeit vom Jahr bin ich sehr ausgebucht und wäre froh um
+                Unterstützung. Leider kann ich nicht alle Patientenanfragen
+                annehmen und auch Notfälle haben es oft schwierig bei mir
+                reinzurutschen. Also Hilfe!!
               </p>
               <p>
                 Ich bin Mentorin und würde mich auch über Anfänger freuen.
-                Daher auch das Angebot, nur halb einzusteigen für eine so
-                kleine Miete. Die Bahnhofstrasse Turgi ist ein sehr guter Ort,
-                um mit einer Praxis zu starten.
+                Daher auch das Angebot nur halb einzusteigen für eine so
+                kleine Miete. Hier in der Bahnhofstrasse Turgi ist ein sehr
+                guter Ort um mit einer Praxis zu starten.
               </p>
-            </div>
-          </Reveal>
-          <Reveal delayMs={180}>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href={kontakt.telefonHref}
-                className="rounded-full bg-wasser px-7 py-4 text-lg font-semibold text-stein-hell transition-colors hover:bg-tuerkis"
-              >
-                {kontakt.telefon}
-              </a>
-              <a
-                href={kontakt.mailHref}
-                className="rounded-full border-2 border-wasser px-7 py-4 text-lg font-semibold text-wasser transition-colors hover:border-tuerkis hover:text-tuerkis"
-              >
-                E-Mail schreiben
-              </a>
             </div>
           </Reveal>
         </div>
